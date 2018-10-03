@@ -1,0 +1,65 @@
+# Server settings
+server:
+  port: 8090
+    
+# Spring Boot settings
+security:
+    basic:
+        enabled: false
+    #enable-csrf: false    
+    user:
+        name: psmuser
+        password: password
+endpoints:
+    loggers:
+        sensitive: false
+management:
+    context-path: /internal/manage
+    security:
+        enabled: false
+        
+# Spring settings
+spring: 
+    jmx: 
+        enabled: false
+    jackson: 
+        serialization-inclusion: NON_NULL
+    http: 
+        multipart: 
+            max-file-size: 50Mb
+            max-request-size: 50Mb 
+
+# Actuator settings
+#endpoints: 
+#    cors: 
+#        allowed-headers: "*" 
+#        allowed-methods: GET,POST
+#        allowed-origins: "*"
+        
+# PDF settings
+pdf:
+    font:
+        detection:
+            ignore: 
+                blankSpaces: true
+                supersubscript: true
+                characters: "[\\u200B\\u00A0]"
+        filter:
+            name-family: "CM+CM,LM+LM,SFBX+SF,SFRM+SF,SFTI+SF,SFTT+SF" # LaTek fonts
+    logging:
+        text:
+            extractor:
+                use: false
+
+# Excel settings
+spreadsheet:
+    encoding:
+         charset:
+             check: true
+             default: "cp850"
+    
+# File settings
+file:
+  upload:
+    max-file-size: 10Mb
+    

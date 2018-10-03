@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+	<!-- *********************************************************************** -->
+	<!-- Project Identification -->
+	<!-- *********************************************************************** -->
+	<artifactId>document-compliance-service-war</artifactId>
+	<packaging>war</packaging>
+
+	<name>Document Compliance Service WAR</name>
+	<description>PSM Document Compliance Service WAR</description>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Parent -->
+    <!-- *********************************************************************** -->
+    <parent>
+        <groupId>gov.nsf.psm</groupId>
+        <artifactId>document-compliance</artifactId>
+        <version>2.0.0-RC.50.1-SNAPSHOT</version>
+    </parent>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Properties -->
+    <!-- *********************************************************************** -->
+	<properties>
+    <psm.documentcompliance.version>2.0.0-RC.50.1-SNAPSHOT</psm.documentcompliance.version>
+    <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Dependencies -->
+    <!-- *********************************************************************** -->
+	<dependencies>
+		<dependency>
+			<groupId>gov.nsf.psm</groupId>
+			<artifactId>document-compliance-service</artifactId>
+			<version>${psm.documentcompliance.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Build -->
+    <!-- *********************************************************************** -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+                <configuration>
+                    <mainClass>gov.nsf.psm.documentcompliance</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+			</plugin>
+		</plugins>
+		<finalName>document-compliance-service</finalName>
+	</build>
+</project>

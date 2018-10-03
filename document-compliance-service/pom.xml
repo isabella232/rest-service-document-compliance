@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Identification -->
+    <!-- *********************************************************************** -->
+	<artifactId>document-compliance-service</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Document Compliance Service</name>
+	<description>Document Compliance Service</description>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Parent -->
+    <!-- *********************************************************************** -->
+	<parent>
+        <groupId>gov.nsf.psm</groupId>
+        <artifactId>document-compliance</artifactId>
+        <version>2.0.0-RC.50.1-SNAPSHOT</version>
+	</parent>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Properties -->
+    <!-- *********************************************************************** -->
+	<properties>
+		<psm.foundation.version>2.0.0-RC.50.1-SNAPSHOT</psm.foundation.version>
+        <psm.factmodel.version>2.0.0-RC.50.1-SNAPSHOT</psm.factmodel.version>
+        <bouncycastle.jdk.version>1.54</bouncycastle.jdk.version>
+        <bouncycastle.jdk.ext.version>1.55</bouncycastle.jdk.ext.version>
+        <commons.io.version>2.5</commons.io.version>
+        <evoinflector.version>1.2</evoinflector.version>
+        <guava.version>17.0</guava.version>
+        <itextpdf.version>7.1.2</itextpdf.version>
+		<java.version>1.8</java.version>
+		<poi.version>3.16</poi.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<springfox.version>2.6.1</springfox.version>
+        <springfox.ui.version>2.6.1</springfox.ui.version>
+        <tikacore.version>1.11</tikacore.version>
+		<sonar.exclusions>src/main/java/gov/nsf/psm/documentcompliance/DocumentComplianceServiceApplication.java</sonar.exclusions>
+	</properties>
+
+    <!-- *********************************************************************** -->
+    <!-- Project Dependencies -->
+    <!-- *********************************************************************** -->
+	<dependencies>
+		<dependency>
+		  <groupId>gov.nsf.psm</groupId>
+		  <artifactId>psm-foundation</artifactId>
+		  <version>${psm.foundation.version}</version>
+		</dependency>
+		<!-- English pluralization library -->
+		<dependency>
+			<groupId>org.atteo</groupId>
+			<artifactId>evo-inflector</artifactId>
+			<version>${evoinflector.version}</version>
+		</dependency>
+		<!-- Guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.tika</groupId>
+		    <artifactId>tika-core</artifactId>
+		    <version>${tikacore.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.tika</groupId>
+		    <artifactId>tika-parsers</artifactId>
+		    <version>${tikacore.version}</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.httpcomponents</groupId>
+		  <artifactId>httpclient</artifactId>
+		  <scope>compile</scope>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.httpcomponents</groupId>
+		  <artifactId>httpmime</artifactId>
+		  <scope>compile</scope>
+		</dependency>
+
+		<!-- iText PDF dependencies -->
+        <dependency>
+           <groupId>com.itextpdf</groupId>
+           <artifactId>kernel</artifactId>
+           <version>${itextpdf.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>com.itextpdf</groupId>
+           <artifactId>io</artifactId>
+           <version>${itextpdf.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>com.itextpdf</groupId>
+           <artifactId>layout</artifactId>
+           <version>${itextpdf.version}</version>
+        </dependency>
+
+        <!-- Apache POI Dependencies -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+
+         <!-- API documentation dependencies -->
+         <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.ui.version}</version>
+        </dependency>
+
+        <!-- PSM Fact Model Dependency -->
+       <dependency>
+			<groupId>gov.nsf.psm</groupId>
+			<artifactId>psm-fact-model</artifactId>
+		    <version>${psm.factmodel.version}</version>
+		</dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.restdocs</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>${commons.io.version}</version>
+		</dependency>
+	</dependencies>
+
+
+    <!-- *********************************************************************** -->
+    <!-- Project Building -->
+    <!-- *********************************************************************** -->
+	<build>
+		<plugins>
+			<plugin>
+			  <groupId>org.springframework.boot</groupId>
+			  <artifactId>spring-boot-maven-plugin</artifactId>
+			  <executions>
+			    <execution>
+			      <goals>
+			        <goal>build-info</goal>
+			      </goals>
+			      <configuration>
+			        <additionalProperties>
+			          <encoding.source>UTF-8</encoding.source>
+			          <encoding.reporting>UTF-8</encoding.reporting>
+			          <java.source>${java.version}</java.source>
+			          <java.target>${java.version}</java.target>
+			          <timestamp>${maven.build.timestamp}</timestamp>
+			          <dependencies.psm-foundation>${psm.foundation.version}</dependencies.psm-foundation>
+			        </additionalProperties>
+			      </configuration>
+			    </execution>
+			  </executions>
+			</plugin>
+            <plugin>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <configuration>
+			        <redirectTestOutputToFile>true</redirectTestOutputToFile>
+			    </configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
